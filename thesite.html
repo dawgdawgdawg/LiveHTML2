@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dawgdawgdawg's live text html</title>
+    <style>
+        .dark-mode{
+      background: linear-gradient(to bottom, #002d59, #000015);
+      color: #4cb0a7;
+      }
+        #FUCKSPEZ{
+            font-size: 255px;
+        }
+        div#view{
+            color: #61ff9f;
+        }
+    body{
+        font-size: 20px;
+        font-family: 'Segoe UI';
+        background: linear-gradient(dodgerblue,navy);
+        color: #2bffeb;
+    }
+     .body-content {
+     animation: barrelRoll 3s forwards;
+     transform-origin: center;
+    }
+
+    @keyframes barrelRoll {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+    </style>
+</head>
+<body>
+    
+    <div class="body-content">
+        <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+function toggleDarkMode() {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    darkModeToggle.textContent = 'Toggle Light Mode';
+  } else {
+    darkModeToggle.textContent = 'Toggle Dark Mode';
+  }
+}
+
+    </script>
+        <label for="fontSizeRange">Set Font Size:</label>
+    <input type="range" id="fontSizeRange" min="8" max="32" value="16" oninput="setFontSize(this.value)">
+    <span id="fontSizeDisplay">16px</span>
+    <label for="letterSpacingRange">Set Letter Spacing:</label>
+    <input type="range" id="letterSpacingRange" min="-4" max="8" value="0" step="0.1" oninput="setLetterSpacing(this.value)">
+    <span id="letterSpacingDisplay">0</span>
+    <span id="FUCKSPEZ">FUCK U/SPEZ</span>
+   <h1>Mario Luigi</h1>
+   <h2>Welcome to the NEW LiveText!</h2>
+   <img width="500" src="https://i.ibb.co/ZXxLqbT/image.png" alt="image" border="0">
+   <h2>Dogs are superior!</h2>
+   <img src="https://mario.wiki.gallery/images/f/f8/SM64_Asset_Model_Mario.png">
+   <img src="https://mario.wiki.gallery/images/7/72/MPSS_Luigi.png">
+   <img width="320" height="288" src="https://i.ibb.co/rmbYzKq/image.png">
+   <img src="https://ourworldoftext.com/static/favicon.png">
+   <img width="400" src="https://cdn.britannica.com/52/7252-050-FE079526/Kazakhstan-map-features-locator.jpg">
+   <button id="unicodeButton" onclick="changeUnicode()">Click me!</button>
+   <p id="unicodeDisplay">Unicode character will appear here.</p>
+   <img width="400" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg">
+   <span contenteditable="true">You can edit me, but it probably won't be visible to everyone</span>
+   <img src="https://i.ibb.co/S7FTfvr/image.png" alt="image" border="0">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <img src="https://i.ibb.co/ZGnsRg4/image.png" alt="image" border="0">
+   <br/>
+   <a href="#" class="download-button" id="downloadBtn">Download Current Page</a>
+   <a href="https://yourworldoftext.com">
+   <img src="https://i.ibb.co/p3y9YQw/image.png" alt="image" border="0">
+   check out ywot
+   </a>
+   <div id="view"><p>Number of views: <span id="viewCount">Loading...</span></p></div>
+</a>
+   <script>
+    function getRandomUnicode() {
+        const minCodePoint = 0x0000;
+        const maxCodePoint = 0xFFFF;
+        const randomCodePoint = Math.floor(Math.random() * (maxCodePoint - minCodePoint + 1)) + minCodePoint;
+        return String.fromCodePoint(randomCodePoint);
+    }
+    function changeUnicode() {
+        const randomUnicode = getRandomUnicode();
+        const unicodeDisplayElement = document.getElementById('unicodeDisplay');
+        unicodeDisplayElement.textContent = randomUnicode;
+    }
+function updateViewCount(count) {
+    const viewCountElement = document.getElementById('viewCount');
+    viewCountElement.textContent = count;
+}
+function incrementViewCount() {
+    fetch('update_view_count.php')
+        .then(response => response.json())
+        .then(data => {
+            updateViewCount(data.count);
+        })
+        .catch(error => console.error('Error:', error));
+}
+document.addEventListener('DOMContentLoaded', incrementViewCount);
+  function downloadPage() {
+    const htmlContent = document.documentElement.outerHTML;
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'current_page.html';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+  }
+  const downloadButton = document.getElementById('downloadBtn');
+  downloadButton.addEventListener('click', downloadPage);
+    function setFontSize(size) {
+            document.body.style.fontSize = size + "px";
+            document.getElementById("fontSizeDisplay").innerText = size + "px";
+        }
+        function setLetterSpacing(spacing) {
+            document.body.style.letterSpacing = spacing + "px";
+            document.getElementById("letterSpacingDisplay").innerText = spacing;
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const initialFontSize = 16; 
+            const initialLetterSpacing = 0; 
+            setFontSize(initialFontSize);
+            setLetterSpacing(initialLetterSpacing);
+
+            document.getElementById("fontSizeRange").value = initialFontSize;
+            document.getElementById("letterSpacingRange").value = initialLetterSpacing;
+        });
+    </script>
+</div>
+</body>
+</html>
